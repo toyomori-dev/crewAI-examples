@@ -3,6 +3,14 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
 from recruitment.tools.linkedin import LinkedInTool
 
+import os
+from crewai import LLM
+
+llm = LLM(
+    model='gemini/gemini-2.5-pro-preview-03-25',
+    api_key=os.getenv('GEMINI_API_KEY')
+)
+
 @CrewBase
 class RecruitmentCrew():
     """Recruitment crew"""
